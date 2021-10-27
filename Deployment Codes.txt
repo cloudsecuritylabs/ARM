@@ -1,0 +1,8 @@
+//az login
+//az group create --name test-rg --location <myLocation>
+//az deployment group create --mode Complete --name NewVMDeployment --resource-group test_group --template-file vm.json
+//az storage account show --resource-group az204-arm-rg --name <myStorageAccount>
+//az group delete --name az204-arm-rg --no-wait
+
+
+az deployment group create --name storeVMDeployment --resource-group terraform-state --template-file storage.json

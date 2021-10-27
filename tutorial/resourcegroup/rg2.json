@@ -1,0 +1,53 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "location"
+            }
+        },
+        "tags": {
+            "type": "object",
+            "metadata": {
+                "description": "description"
+            },
+            "allowedValues": [
+                { "new": "env" },
+                { "new": "dev" }
+            ]
+        },
+        "name": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            }
+        },
+        "environment": {
+            "type": "string",
+            "metadata": {
+                "description": "description"
+            },
+            "allowedValues": [
+                "prod",
+                "non-prod",
+                "integration"
+            ]
+        }
+
+    },
+    "functions": [],
+    "variables": { "environment": "value" },
+    "resources": [
+        {
+            "name": "[concat(parameters('name'), parameters('environment')) ]",
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2021-04-01",
+            "location": "[parameters('location')]",
+            "dependsOn": [],
+            "tags": "[parameters('tags')]"
+        }
+    ],
+    "outputs": {}
+}
