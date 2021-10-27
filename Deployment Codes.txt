@@ -6,3 +6,6 @@
 
 
 az deployment group create --name storeVMDeployment --resource-group terraform-state --template-file storage.json
+az deployment create --name rgtest1 --template-file rg2.json --parameter-file rg2.parameter.json
+az deployment create --name "rg_deployment_1" --location southeastasia --template-file ".rg2.json"  --parameters "@rg2.parameter.json"
+az deployment create --name "rg_deployment_1" --location southeastasia --template-file "rg2.json"  --parameters "@rg2.parameter.json"
